@@ -5,8 +5,10 @@ import discord
 import disnake
 from disnake.ext import commands
 from quickstart import addToTable
+from webserver import keep_alive
 
 bot = commands.Bot(command_prefix="!", help_command=None, intents=disnake.Intents.all())
+my_secret = os.environ['KEY']
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -102,5 +104,5 @@ async def img_meme(inter):
     await inter.send(file=disnake.File('guh.gif'))
 
 
-bot.run("MTE0MjAwMjY1NDU2Mjc1ODcwNw.Gk0oyC.9iPwfn8X-z9GCsLo-eSW3Yp7MMsMAVQhJ8tYo4")
+bot.run(my_secret)
 
